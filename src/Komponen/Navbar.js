@@ -8,7 +8,7 @@ export const NavigationBar = () => {
     <>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"> 
         <Container>
-            <Navbar.Brand href="/home" className="fs-2 font-monospace fw-bold text-warning">TwoBlog</Navbar.Brand>
+            <Navbar.Brand href="/" className="fs-2 font-monospace fw-bold text-warning">TwoBlog</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
