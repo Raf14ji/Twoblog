@@ -19,7 +19,7 @@ const formik = useFormik({
         username: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        confirmPhoneNumber: "",
     },
     // validation schema
     validationSchema: Yup.object({
@@ -34,10 +34,8 @@ const formik = useFormik({
             .matches(/[A-Z]/g, 'Should contain at least one uppercase letter')
             .matches(/[a-z]/g, 'Should contain at least one lowercase letter')
             .matches(/[0-9]/g, 'Should contain at least one number'),
-        confirmPassword: Yup.string()
-            .required()
-            .oneOf([Yup.ref('password'), null], 'Passwords must match')
-
+        confirmPhoneNumber: Yup.string()
+            .required('Enter phone number')
     }),
     // handleSubmit
     onSubmit: doregister,
@@ -83,20 +81,20 @@ return (
                     {formik.touched.password && formik.errors.password && <div className="error text-danger">{formik.errors.password}</div>}
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="password">Confirm Password</label>
-                    <input type="password"
-                        placeholder="Enter Password"
+                    <label htmlFor="PhoneNumber">Phone number</label>
+                    <input type="number"
+                        placeholder="Enter phone number"
                         className="form-control"
-                        name="confirmPassword"
-                        {...formik.getFieldProps('confirmPassword')}
+                        name="confirmPhoneNumber"
+                        {...formik.getFieldProps('confirmPhoneNumber')}
                     />
-                    {formik.touched.confirmPassword && formik.errors.confirmPassword && <div className="error text-danger">{formik.errors.confirmPassword}</div>}
+                    {formik.touched.confirmPhoneNumber && formik.errors.confirmPhoneNumber && <div className="error text-danger">{formik.errors.confirmPhoneNumber}</div>}
                 </div>
                 <div className="d-grid">
                     <button type="submit" disabled={formik.isSubmitting} className="btn btn-dark">Submit</button>
                 </div>
                 <p className="mt-2 text-none">
-                    Forgot<a href="" className="ms-1">password ?</a><Link to="/login" className="ms-2">Sign In</Link>
+                    Forgot<a href="" className="ms-1">password ?</a><span className="ml-5">Already account ?<Link to="/login" className="ms-2">Login</Link></span>
                 </p>
             </form>
         </div>
