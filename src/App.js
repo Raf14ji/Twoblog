@@ -16,6 +16,7 @@ function App() {
     </div>
     <Router>
       <Routes>
+        <Route path='/' element={<MainContent/>}/>
         <Route path='/olahraga' element={<OlahragaPage/>}/>
         <Route path='/cuaca' element={<CuacaPage/>}/>
         <Route path='/berita' element={<BeritaPage/>}/>
